@@ -55,7 +55,7 @@ jobs:
           cd ~/twrp
           source build/envsetup.sh
           lunch twrp_KI5q-eng
-          mka recoveryimage -j$(nproc)
+          mka bootimage -j$(nproc)
 
       - name: Collect output images
         run: |
