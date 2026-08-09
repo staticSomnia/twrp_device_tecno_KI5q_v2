@@ -57,6 +57,18 @@ jobs:
           lunch twrp_KI5q-eng
           mka bootimage -j$(nproc)
 
+      - name: Diagnose image component sizes
+        if: always()
+        run: |
+          echo "--- Kernel ---"
+          ls -la ~/twrp/out/target/product/KI5q/kernel 2>/dev/null || echo "not found"
+          echo "--- Ramdisk ---"
+          ls -la ~/twrp/out/target/product/KI5q/ramdisk-recovery.img 2>/dev/null || echo "not found"
+          echo "--- DTB ---"
+          ls -la ~/twrp/device/tecno/KI5q/prebuilt/dtb.img 2>/dev/null || echo "not found"
+          echo "--- recovery/root breakdown (top 20 largest) ---"
+          du -ah ~/twrp/out/target/product/KI5q/recovery/root 2>/dev/null | sort -rh | head -20
+
       - name: Collect output images
         run: |
           mkdir -p $GITHUB_WORKSPACE/output
