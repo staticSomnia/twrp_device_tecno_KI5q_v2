@@ -130,7 +130,6 @@ TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
 # Better ramdisk compression to fit boot partition size
-LZMA_RAMDISK_TARGETS := boot,recovery
 
 # Safe space trims (no impact on crypto, ADB, or Treble/dynamic partitions)
 TW_EXCLUDE_APP_MANAGER := true
@@ -139,3 +138,16 @@ TW_EXCLUDE_SDEXT := true
 TW_EXCLUDE_HAPTICS := true
 TW_EXCLUDE_BATTERY_PERCENT := true
 TW_NO_CPU_TEMP := true
+
+# Additional space trims (crypto/FBE decrypt intentionally preserved)
+TW_NO_USB_STORAGE := true
+TW_EXCLUDE_MTP := true
+TW_NO_EXFAT := true
+TW_INCLUDE_FB2PNG := false
+TW_EXCLUDE_TZDATA := true
+TW_INCLUDE_DUMLOCK := false
+TW_INCLUDE_INJECTTWRP := false
+TW_HAS_DOWNLOAD_MODE := false
+TW_INCLUDE_NTFS_3G := false
+TW_NO_LEGACY_PROPS := true
+TW_OEM_BUILD := true
