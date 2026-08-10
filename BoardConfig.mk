@@ -133,7 +133,6 @@ TARGET_USES_LOGD := true
 LZMA_RAMDISK_TARGETS := boot,recovery
 
 # Safe space trims (no impact on crypto, ADB, or Treble/dynamic partitions)
-TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 TW_EXCLUDE_APP_MANAGER := true
 TW_EXCLUDE_MULTIUSER := true
 TW_EXCLUDE_SDEXT := true
