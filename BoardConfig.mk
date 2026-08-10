@@ -128,3 +128,15 @@ TW_INCLUDE_LIBRESETPROP := true
 
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# Better ramdisk compression to fit boot partition size
+LZMA_RAMDISK_TARGETS := boot,recovery
+
+# Safe space trims (no impact on crypto, ADB, or Treble/dynamic partitions)
+TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+TW_EXCLUDE_APP_MANAGER := true
+TW_EXCLUDE_MULTIUSER := true
+TW_EXCLUDE_SDEXT := true
+TW_EXCLUDE_HAPTICS := true
+TW_EXCLUDE_BATTERY_PERCENT := true
+TW_NO_CPU_TEMP := true
