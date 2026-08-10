@@ -60,14 +60,15 @@ jobs:
       - name: Diagnose image component sizes
         if: always()
         run: |
-          echo "--- Kernel ---"
-          ls -la ~/twrp/out/target/product/KI5q/kernel 2>/dev/null || echo "not found"
-          echo "--- Ramdisk ---"
-          ls -la ~/twrp/out/target/product/KI5q/ramdisk-recovery.img 2>/dev/null || echo "not found"
-          echo "--- DTB ---"
-          ls -la ~/twrp/device/tecno/KI5q/prebuilt/dtb.img 2>/dev/null || echo "not found"
-          echo "--- recovery/root breakdown (top 20 largest) ---"
-          du -ah ~/twrp/out/target/product/KI5q/recovery/root 2>/dev/null | sort -rh | head -20
+          echo "--- Full system/lib64 breakdown ---"
+          du -ah ~/twrp/out/target/product/KI5q/recovery/root/system/lib64 2>/dev/null | sort -rh > /tmp/lib64.txt
+          cat /tmp/lib64.txt
+          echo "--- Full system/bin breakdown ---"
+          du -ah ~/twrp/out/target/product/KI5q/recovery/root/system/bin 2>/dev/null | sort -rh > /tmp/bin.txt
+          cat /tmp/bin.txt
+          echo "--- Check if binaries are stripped (unstripped = huge, common fixable issue) ---"
+          file ~/twrp/out/target/product/KI5q/recovery/root/system/bin/recovery
+          file ~/twrp/out/target/product/KI5q/recovery/root/system/lib64/libicui18n.so
 
       - name: Collect output images
         run: |
