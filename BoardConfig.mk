@@ -10,7 +10,7 @@ TW_DEFAULT_LANGUAGE := en
 TARGET_USES_MKE2FS := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_DEVICE_VERSION := KI5q By @Necatisoff
+TW_DEVICE_VERSION := KI5q
 TW_HAS_MTP := true
 RECOVERY_SDCARD_ON_DATA := true
 
